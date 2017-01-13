@@ -3,11 +3,16 @@ How to set it up:
 1. install mysql.
 2. open terminal and do the following:
 
-a. sudo su
+a. sudo su<br>
+
 b. mysql -p
+
 c. create databese pocketTanksDjango;
+
 d. use pocketTanksDjango;
+
 e. create table users ( uid int( 64) primary key auto_increment, username varchar( 200), password varchar( 3000) );
+
 f. create table bots ( botID int( 64) primary key auto_increment, uid int( 64), usersLastSubmission int( 1), extn varchar( 20) );
 
 3. install mysql.connector using -> pip install --user mysql-connector.
