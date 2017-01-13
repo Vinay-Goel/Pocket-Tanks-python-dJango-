@@ -1,0 +1,161 @@
+{% extends "dashboard/dashNavBar.html" %}
+
+{% block dashBody %}
+
+
+<head>
+
+  <link rel = "stylesheet" href = "/static/css/dashcss.css" >
+
+  <title>Pocket Tanks</title>
+
+</head>
+
+
+<body>
+
+  <div class = "problem">
+
+    <br>
+
+    <h4> PROBLEM STATEMENT:: </h4>
+
+    Pocket Tanks is a 2 player bot battle between two, your's and your opponent's, tanks. This battle takes place on field with two verticle parallel lines of size 100< 'N' <= 10^5 one for each tank. The tanks are located on these lines and can be present at positions from '1' to 'N'. You can make 1000< 'M'<= 10000 moves. After both players complete 'M' moves the game ends and the player with maximum score wins. The only problem is that you don't know your opponent's position.
+    <br>
+    In begining each player prints a position 'P' (1 <= P <= N) to place his tank and then they make 'M' moves.
+    <br><br><br>
+    Discription of a move::
+    <br>
+    * In each move player will be given an input which will be either '0' or '1'. '0' meaning you were not hit by your opponent move, '1' meaning you were hit. If input is '1' you need to print a new position 'P' (1 <= P <= N) to place your tank.
+    <br>
+    * Then you print a position 'X' (1 <= X <= N) where you will aim your missile on enemy line and the type of missile you are about to launch seperated by a space. You have three type of missiles:-
+    <br><br><br>
+    1. You print 'xFalcon' to use the 'Falcon'.<br>
+    Falcon hits the exact position 'X' you printed and if you hit the opponent's tank you get '100' points. You have unlimited Falcon missiles.
+    <br>
+    2. You print 'xSea Eagle' to use the 'Sea Eagle'.<br>
+    Sea Eagle hits all the points within the range { max( 1, X - N/100) to min( N, X + N/100) } i.e. 2% of the whole field and you get '50' points on a successful hit i.e. opponent tank was present within the hit range. You have exactly min( M/200, 10) Sea Eagle missiles.
+    <br>
+    3. You print 'xAgni-V' to use 'Agni-V'.<br>
+    Agni-V hits all the points within the range { max( 1, X - N/50) to min( N, X + N/50) } i.e. 4% of the enemy line and you get wooping '500' points if opponent was present on 'X' or else if opponent was present on any position 'OP' other than 'X' but in the hit range then you get 500/|X-OP| points. Also you have only '1' Agni-V so use it wisely.
+    <br><br><br>
+
+    * Now you will be given another input which will be '0' if your missile hits the tank i.e. opponent's tank was within the hit range, '1' if missile missed and the opponent's tank position is greater than all positions in the hit range, '-1' if you missed and opponent's tank position is less than all positions in the hit range.
+    <br>
+    * Each player has a special power which can be used M/1000 times.
+    <br><br><br>
+    With this power you can shift your tank to a new location 'NP' which lies within the range { max( 1, P - N/100) to min( N, P + N/100) }. To use the power print '1' and the new position 'NP' seperated by a space, else print '0'.
+
+    <br><br><br><br>
+
+    NOTE::
+    <br>
+    * |A| is the absolute value of A.
+    <br>
+    * All the divisions above are rounded of to their lower bounds.
+    <br>
+    * Remember to flush the standart input after each scan. Use 'fflush( stdout )' in C/C++ after taking any input.
+    <br>
+    * The count of special power is uneffected in case your tank is hit by opponent missile and you have to change your tank's position.
+
+  </div>
+
+</body>
+
+
+{% for message in messages %}
+      <br><br><center><label style = "font-size: 14px; text-align: right; color: #4CAF70;"> {{message}} </label></center> <br><br>
+{% endfor %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block submitBody %}
+
+<head>
+
+  <link rel = "stylesheet" href = "/static/css/dashcss.css" >
+
+  <title>Pocket Tanks</title>
+
+</head>
+
+
+<body>
+<center>
+  <form action = "/dashboard/" method = "POST" enctype = "multipart/form-data">
+    {% csrf_token %}
+    {{form.fileUploaded.label}}
+    {{form.fileUploaded}}
+     <input type = "submit">
+  </form>
+</center>
+
+</body>
+
+
+
+  {% for message in messages %}
+        <br><br><center><label style = "font-size: 14px; text-align: right; color: #4CAF70;"> {{message}} </label></center> <br><br>
+	{% endfor %}
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block submissionBody %}
+
+<head>
+
+  <link rel = "stylesheet" href = "/static/css/dashcss.css" >
+
+  <title>Pocket Tanks</title>
+
+</head>
+
+<body>
+
+
+
+  {% if submissions %}
+    {% for submission in submissions %}
+      {{submission}}<br>
+    {% endfor %}
+  {% endif %}
+
+
+
+</body>
+
+{% for message in messages %}
+      <br><br><center><label style = "font-size: 14px; text-align: right; color: #4CAF70;"> {{message}} </label></center> <br><br>
+{% endfor %}
+
+{% endblock %}

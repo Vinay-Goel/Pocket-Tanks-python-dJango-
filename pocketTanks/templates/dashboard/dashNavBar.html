@@ -1,0 +1,36 @@
+<head>
+  <link rel = "stylesheet" href = "/static/css/navcss.css">
+</head>
+
+
+<body>
+
+  <ul class="tab">
+    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'dashboard')" id="defaultOpen">Dashboard</a></li>
+    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'submit')">Submit</a></li>
+    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'submission')">My Submissions</a></li>
+    <li style = "float: right;"><a href="/logout/"> Logout </a></li>
+    <li style = "float: right; color: #efefef; margin-top: 11px; font-size: 20px; margin-right: 5px;"> {{user}} </li>
+    <li style = "float: right; color: #efefef; margin-top: 15px; font-size: 15px; margin-right: 10px;"> WELCOME @ </li>
+  </ul>
+
+
+
+  <div id="dashboard" class="tabcontent">
+    {% block dashBody %}
+    {% endblock %}
+  </div>
+
+  <div id="submit" class="tabcontent">
+    {% block submitBody %}
+    {% endblock %}
+  </div>
+
+  <div id="submission" class="tabcontent">
+    {% block submissionBody %}
+    {% endblock %}
+  </div>
+
+  <script src = "/static/js/navjs.js"></script>
+
+</body>

@@ -1,0 +1,51 @@
+{% extends "register/mainNavBar.html" %}
+
+
+
+{% block registerBody %}
+
+
+
+
+
+<head>
+  <title>Registeration Page</title>
+  <link rel = "stylesheet" href = "/static/css/cssStyleSheet.css">
+</head>
+
+<body>
+<center>
+<div class="container">
+  <label style = "color:#666666"> <a href = "/" style = "text-decoration: none; color: #2f2828"> <h2>POCKET TANKS</h2> </a> </label>
+  <div class="imgcontainer">
+    <img src="/static/images/img_avatar2.png" alt="Avatar" width = "180" style = "border-radius: 20%;">
+  </div>
+
+  <form action = "/register/" method = "Post" >
+    {% csrf_token %}
+    <br><br><br>
+    <label style = "color:#666666; font-size:13px;">
+      {{form.username.label}}<br>
+      {{form.username}}<br>
+      {{form.password.label}}<br>
+      {{form.password}}<br>
+      {{form.confirm.label}}<br>
+      {{form.confirm}}<br><br>
+      {{form.tnc}}
+      {{form.tnc.label}}<br>
+    </label>
+    <br><br>
+    {% for message in messages %}
+      <label style = "color:red; font-size:11px;"> {{message}} </label> <br>
+    {% endfor %}
+    <input class = "c1" type="submit" value = "Register">
+  </form>
+
+
+</div>
+</center>
+</body>
+
+
+
+{% endblock %}

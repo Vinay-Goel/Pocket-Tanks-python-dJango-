@@ -1,0 +1,28 @@
+body{
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+    padding-top: 40px;
+    border: 8px solid #666666;
+    width: 400px;
+}
+
+input[type=text], input[type=password] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.c1 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}

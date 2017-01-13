@@ -1,0 +1,24 @@
+<head>
+  <link rel = "stylesheet" href = "/static/css/navcss.css">
+</head>
+
+
+<body>
+
+  <ul class="tab">
+    <li><a href="/" style = "margin-top: 15px; font-size: 26px;"> POCKET TANKS </a></li>
+    <li style = "float: right; margin-top: 22px; margin-left: 5px;"><a href="/register/"> REGISTER </a></li>
+
+    <form action = "/" method = "Post" style = "float: right; margin-top: 15px;">
+      {% csrf_token %}
+      <li> <input type="text" placeholder="Enter your username" name="username" required> </li>
+      <li style = "margin-left: 10px;"> <input type="password" placeholder="Enter your password" name="password" required> </li>
+      <li style = "margin-left: 10px; margin-top: -1px;"> <input class = "c1" type="submit" value = "Login"> </li>
+    </form>
+  </ul>
+
+  <br> {% block loginBody %} {% endblock %}
+
+  <br> {% block registerBody %} {% endblock %}
+
+</body>
