@@ -18,8 +18,9 @@ f. create table bots ( botID int( 64) primary key auto_increment, uid int( 64), 
 3. install mysql.connector using -> pip install --user mysql-connector.
 4. if above doesn't work I recommend installing pycharn for installing python modules.
 5. open judge.java in bots folder and on 8th line edit the path to 'directory/bots/' where directory is the location where you cloned this repository.
-6. open simulateJudge.py in problemPage and 19th line edit the path same as in above step. 
-7. done.
+6. open simulateJudge.py in problemPage and on 19th line edit the path same as in above step. 
+7. open settings.py in pocketTanks and on 91st line change the password to your mysql password.
+8. done.
 
 Run using:
 1. python3 manage.py migrate
